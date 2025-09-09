@@ -1,11 +1,12 @@
 import React from 'react';
+import LaLigaTable from './LaligaTable';
 
 const App = () => {
   return (
-    <div>
-      <h1 className='text-2xl font-extrabold'>سلام</h1>
+    <>
+      <LaLigaTable/>
       
-    </div>
+    </>
   );
 };
 
