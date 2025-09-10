@@ -1,14 +1,23 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLaligaTeams } from './redux/laligaTeams/laligaTeamsSlice';
+import MatchModal from './MatchModal';
 
 const LaLigaTable = () => {
 	const { error, teams, isLoading } = useSelector(state => state.laligaTeams);
 	const dispatch = useDispatch();
+	const [showModal, setShowModal] = useState(false)
+	const [selectedTeamId, setSelectedTeamId] = useState(null);
+
 
 	useEffect(() => {
 		dispatch(getLaligaTeams());
 	}, [dispatch]);
+
+	const handleModal = (id)=>{
+		setShowModal(true)
+		setSelectedTeamId(id)		
+	}
 
 	if (error) {
 		return (
@@ -67,6 +76,7 @@ const LaLigaTable = () => {
 						  ))
 						: teams.map((team, index) => (
 								<tr
+									onClick={()=>handleModal(team.idTeam)}
 									key={index}
 									className="text-center transition transform hover:scale-[1.02] hover:bg-red-50">
 									<td className="p-3 font-bold">{index + 1}</td>
@@ -86,6 +96,9 @@ const LaLigaTable = () => {
 						  ))}
 				</tbody>
 			</table>
+			{showModal && (
+				<MatchModal onClose={() => setShowModal(false)} id={selectedTeamId} />
+			)}
 		</div>
 	);
 };
