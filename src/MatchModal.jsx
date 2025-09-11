@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import PersianDate from './components/PersianDate';
 
 const MatchModal = ({ id, onClose }) => {
 	const [matchData, setMatchData] = useState([]);
@@ -15,23 +16,24 @@ const MatchModal = ({ id, onClose }) => {
 	}, []);
 	useEffect(() => {
 		console.log(matchData);
+		console.log(matchData.dateEvent);
 	}, [matchData]);
 
 	return (
 		<div className="fixed inset-0 bg-black/40 backdrop-blur-sm flex justify-center items-center">
 			<div className="bg-white/10 p-6 rounded-xl text-white">
 				<div className="flex ">
-					<div className="w-1/2 flex flex-col items-center gap-2  ">
+					<div className="w-1/3 flex flex-col items-center gap-2  ">
 						<h3 className="md:text-3xl text-lg text-gray-900 font-bold">Home</h3>
-						<img className="w-1/3" src={matchData.strHomeTeamBadge} alt="logo" loading="lazy" />
+						<img className="w-1/2" src={matchData.strHomeTeamBadge} alt="logo" loading="lazy" />
 						<p className="text-lg">{matchData.strHomeTeam}</p>
 					</div>
-					<div className="w-1/2 flex flex-col items-center gap-2 ">
+					{matchData?.dateEvent && <PersianDate date={matchData.dateEvent} />}{' '}
+					<div className="w-1/3 flex flex-col items-center gap-2 ">
 						<h3 className="md:text-3xl text-lg text-gray-900 font-bold">Away</h3>
-						<img className="w-1/3" src={matchData.strAwayTeamBadge} alt="logo" />
+						<img className="w-1/2" src={matchData.strAwayTeamBadge} alt="logo" />
 						<p className="text-lg">{matchData.strAwayTeam}</p>
 					</div>
-					<div></div>
 				</div>
 
 				<button
