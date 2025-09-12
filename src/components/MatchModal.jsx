@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import PersianDate from './components/PersianDate';
+import MatchInfo from './MatchInfo';
 
 const MatchModal = ({ id, onClose }) => {
+
 	const [matchData, setMatchData] = useState([]);
 	useEffect(() => {
 		const getMatch = async id => {
@@ -27,16 +28,16 @@ const MatchModal = ({ id, onClose }) => {
 						<img className="w-1/2" src={matchData.strHomeTeamBadge} alt="logo" loading="lazy" />
 						<p className="text-lg">{matchData.strHomeTeam}</p>
 					</div>
-					{matchData?.dateEvent && <PersianDate date={matchData.strTimestamp}  />}{' '}
+					{matchData?.dateEvent && <MatchInfo date={matchData.strTimestamp}  />}{' '}
 					<div className="w-1/3 flex flex-col items-center gap-2 ">
 						<h3 className="md:text-3xl text-lg text-gray-900 font-bold">Away</h3>
-						<img className="w-1/2" src={matchData.strAwayTeamBadge} alt="logo" />
+						<img className="w-1/2" src={matchData.strAwayTeamBadge} alt="logo" loading="lazy" />
 						<p className="text-lg">{matchData.strAwayTeam}</p>
 					</div>
 				</div>
 
 				<button
-					className="mt-4 px-4 py-2 rounded-lg bg-white/20 hover:bg-white/30 transitio cursor-pointer "
+					className="mt-4 px-4 py-2 rounded-lg bg-white/20 hover:bg-white/30 transition duration-300 cursor-pointer "
 					onClick={onClose}>
 					Back
 				</button>

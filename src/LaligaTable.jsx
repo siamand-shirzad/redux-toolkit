@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLaligaTeams } from './redux/laligaTeams/laligaTeamsSlice';
-import MatchModal from './MatchModal';
+import MatchModal from './components/MatchModal';
 
 const LaLigaTable = () => {
 	const { error, teams, isLoading } = useSelector(state => state.laligaTeams);
