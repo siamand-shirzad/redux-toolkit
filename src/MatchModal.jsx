@@ -16,7 +16,6 @@ const MatchModal = ({ id, onClose }) => {
 	}, []);
 	useEffect(() => {
 		console.log(matchData);
-		console.log(matchData.dateEvent);
 	}, [matchData]);
 
 	return (
@@ -28,7 +27,7 @@ const MatchModal = ({ id, onClose }) => {
 						<img className="w-1/2" src={matchData.strHomeTeamBadge} alt="logo" loading="lazy" />
 						<p className="text-lg">{matchData.strHomeTeam}</p>
 					</div>
-					{matchData?.dateEvent && <PersianDate date={matchData.dateEvent} />}{' '}
+					{matchData?.dateEvent && <PersianDate date={matchData.strTimestamp}  />}{' '}
 					<div className="w-1/3 flex flex-col items-center gap-2 ">
 						<h3 className="md:text-3xl text-lg text-gray-900 font-bold">Away</h3>
 						<img className="w-1/2" src={matchData.strAwayTeamBadge} alt="logo" />
