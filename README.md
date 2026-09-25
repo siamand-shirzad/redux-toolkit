@@ -1,12 +1,16 @@
-# React + Vite
+# La Liga Table — Redux Toolkit
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+La Liga standings and upcoming matches from TheSportsDB, fetched with Redux Toolkit (loading and error states), with kick-off times converted to Tehran time and the Jalali calendar through a reusable `usePersianDate` hook.
 
-Currently, two official plugins are available:
+جدول لالیگا و بازی‌های پیش رو با Redux Toolkit و نمایش تاریخ و ساعت به وقت تهران.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**Live:** https://redux-toolkit-zeta-ten.vercel.app/
 
-## Expanding the ESLint configuration
+## Stack
+React · Redux Toolkit · axios · moment-jalaali / moment-timezone · Tailwind CSS
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Run
+```bash
+npm install
+npm run dev
+```
